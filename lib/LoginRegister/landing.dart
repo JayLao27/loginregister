@@ -11,7 +11,7 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Lao Activity 2"),
-      ), // AppBar
+      ), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

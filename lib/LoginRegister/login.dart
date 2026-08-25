@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loginregister/LoginRegister/register.dart';
+import 'package:loginregister/LoginRegister/landing.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,7 +20,7 @@ void _login() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const LandingPage(), 
+        builder: (context) => LandingPage(username: username, password: password),
       ),
     );
   } 
@@ -27,7 +29,7 @@ void _login() {
    Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
   }
 
-
+  @override
   Widget build(BuildContext context) {
     final ButtonStyle buttonStyle = ElevatedButton.styleFrom(
       minimumSize: const Size.fromHeight(50),
@@ -42,7 +44,9 @@ void _login() {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lao Activity 2'),
+        title: const Text ('Lao Activity 2', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -89,9 +93,19 @@ void _login() {
                 child: const Text('Login'),
               ),
               const SizedBox(height: 15),
-              TextButton(
+              ElevatedButton(
                 onPressed: _gotoRegister,
-                child: const Text('Create account'),
+                style: buttonStyle.copyWith(
+                  backgroundColor: WidgetStateProperty.all<Color>(Colors.blue),
+                  foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                  side: WidgetStateProperty.all<BorderSide>(
+                    const BorderSide(
+                      color: Colors.blue,
+                      width: 2,
+                    ),
+                  ),
+                ),
+                child: const Text('Register'),
               ),
             ],
           ),
