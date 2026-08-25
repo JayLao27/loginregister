@@ -3,36 +3,13 @@ import 'package:flutter/material.dart';
 class CrossAlignmentPage extends StatelessWidget {
   const CrossAlignmentPage({super.key});
 
-  Widget _sectionTitle(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24, bottom: 8),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  List<Widget> _rowBoxes() => const [
-        SizedBox(width: 90, height: 90, child: ColoredBox(color: Colors.red)),
-        SizedBox(width: 80, height: 80, child: ColoredBox(color: Colors.yellow)),
-        SizedBox(width: 70, height: 70, child: ColoredBox(color: Colors.blue)),
-      ];
-
-  Widget _demoBox({required Widget child, double height = 120}) {
-    return SizedBox(
-      width: double.infinity,
-      height: height,
-      child: child,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Cross Alignment',
+          'Lao Activity 3',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -43,162 +20,864 @@ class CrossAlignmentPage extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _sectionTitle('MainAxisAlignment.center'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('MainAxisAlignment.spaceAround'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('MainAxisAlignment.spaceBetween'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('MainAxisAlignment.spaceEvenly'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('MainAxisAlignment.start'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('MainAxisAlignment.end'),
-            _demoBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('CrossAxisAlignment.start'),
-            _demoBox(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('CrossAxisAlignment.end'),
-            _demoBox(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('CrossAxisAlignment.center'),
-            _demoBox(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('CrossAxisAlignment.stretch'),
-            _demoBox(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: _rowBoxes(),
-              ),
-            ),
-            const Divider(height: 48),
-            _sectionTitle('Column MainAxisAlignment.center'),
-            _demoBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column MainAxisAlignment.spaceAround'),
-            _demoBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column MainAxisAlignment.spaceBetween'),
-            _demoBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column MainAxisAlignment.spaceEvenly'),
-            _demoBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column MainAxisAlignment.start'),
-            _demoBox(
-              height: 300,
+            SizedBox(
+              height: screenHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column MainAxisAlignment.end'),
-            _demoBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: _rowBoxes(),
-              ),
-            ),
-            _sectionTitle('Column CrossAxisAlignment.center'),
-            _demoBox(
-              height: 300,
-              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: _rowBoxes(),
+                children: [
+                  const Text(
+                    'MainAxisAlignment.center',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            _sectionTitle('Column CrossAxisAlignment.start'),
-            _demoBox(
-              height: 300,
+
+            SizedBox(
+              height: screenHeight,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _rowBoxes(),
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'MainAxisAlignment.spaceAround',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            _sectionTitle('Column CrossAxisAlignment.end'),
-            _demoBox(
-              height: 300,
+
+            SizedBox(
+              height: screenHeight,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: _rowBoxes(),
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'MainAxisAlignment.spaceBetween',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            _sectionTitle('Column CrossAxisAlignment.stretch'),
-            _demoBox(
-              height: 300,
+
+            SizedBox(
+              height: screenHeight,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: _rowBoxes(),
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'MainAxisAlignment.spaceEvenly',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 24),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'MainAxisAlignment.start',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'MainAxisAlignment.end',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'CrossAxisAlignment.start',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'CrossAxisAlignment.end',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'CrossAxisAlignment.center',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'CrossAxisAlignment.stretch',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 120,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.center',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.spaceAround',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.spaceBetween',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.spaceEvenly',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.start',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column MainAxisAlignment.end',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column CrossAxisAlignment.center',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column CrossAxisAlignment.start',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column CrossAxisAlignment.end',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Column CrossAxisAlignment.stretch',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        width: double.infinity,
+                        height: 300,
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SizedBox(
+                              height: 90,
+                              child: ColoredBox(color: Colors.red),
+                            ),
+                            SizedBox(
+                              height: 80,
+                              child: ColoredBox(color: Colors.yellow),
+                            ),
+                            SizedBox(
+                              height: 70,
+                              child: ColoredBox(color: Colors.blue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
